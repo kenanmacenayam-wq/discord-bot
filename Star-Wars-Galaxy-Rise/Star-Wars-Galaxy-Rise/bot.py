@@ -26,15 +26,17 @@ intents.guilds = True
 
 bot = commands.Bot(command_prefix="!", intents=intents)
 
+lieu="Star-Wars-Galaxy-Rise/Star-Wars-Galaxy-Rise/"
+
 # Variables globales
 global SELECTION, CHOIX_POSSIBLES, CHOIX_TEXTE
 SELECTION, CHOIX_POSSIBLES, CHOIX_TEXTE = "", [], ""
 
 # Charger le fichier de lore
-with open("lore.json", "r", encoding="utf-8") as f:
+with open(str(lieu)+"lore.json", "r", encoding="utf-8") as f:
     lore_data = json.load(f)
 #Charger des donné externe comme la liste des bannis : Farfadet
-DATA_FILE = "info.json"
+DATA_FILE = str(lieu)+"info.json"
 
 def save_data():
     with open(DATA_FILE, "w") as f:
@@ -52,7 +54,7 @@ else:
 
 def fiche_creer(id):
     try:
-        with open("fiches/" + str(id) + ".json", "r") as f:
+        with open(str(lieu)+"fiches/" + str(id) + ".json", "r") as f:
             config = json.load(f)
         return True
     except:
@@ -268,7 +270,7 @@ async def actualiser(interaction: discord.Interaction):
 async def afficher_image(interaction: discord.Interaction,
                          taille: Optional[int] = 200):
     try:
-        with open("Images/LienImages.json", "r") as f:
+        with open(str(lieu)+"Images/LienImages.json", "r") as f:
             liens = json.load(f)
         reponse = "Voici une image :"
         try:
@@ -437,7 +439,7 @@ async def editfiche(interaction: discord.Interaction,
                                                 ephemeral=True)
         return
     try:
-        with open("fiches/" + str(user_id) + ".json", "r") as f:
+        with open(str(lieu)+"fiches/" + str(user_id) + ".json", "r") as f:
             fiche = json.load(f)
         try:
             faction = faction.value
@@ -459,7 +461,7 @@ async def editfiche(interaction: discord.Interaction,
         for i in range(len(parametres)):
             if parametres[i][1] != None:
                 fiche[parametres[i][0]] = parametres[i][1]
-        with open("fiches/" + str(user_id) + ".json", "w") as f:
+        with open(str(lieu)+"fiches/" + str(user_id) + ".json", "w") as f:
             json.dump(fiche, f, ensure_ascii=False, indent=2)
         await interaction.response.send_message(
             "✅ La fiche de " + str(pseudo) +
@@ -501,7 +503,7 @@ async def voirfiche(interaction: discord.Interaction,
         member = nom.name
         user_role = nom.roles
     try:
-        with open(f"fiches/{user_id}.json", "r", encoding="utf-8") as f:
+        with open(str(lieu)+"fiches/"+str(user_id)+".json", "r", encoding="utf-8") as f:
             fiche = json.load(f)
 
         embed = discord.Embed(title="📖 Fiche de personnage", color=0x3498db)
@@ -525,7 +527,7 @@ async def voirfiche(interaction: discord.Interaction,
         embed.add_field(name="Rang",value=rang, inline=True)#🔑
         embed.add_field(name="Rang suivant",value=rang_Suivant(rang), inline=True)#🔑
         faction=str(fiche["Faction"])
-        with open("Images/LienImages.json", "r") as f:
+        with open(str(lieu)+"Images/LienImages.json", "r") as f:
             liens = json.load(f)
         embed.set_image(url=liens["Faction"][faction])
         embed.set_footer(text=f"JediRiseBot – {pseudo}")  #ctx.author.name
@@ -571,7 +573,7 @@ async def competence(interaction: discord.Interaction, nom: discord.Member,
     pseudo = nom.display_name
     member = nom.name
     user_role = nom.roles
-    fiche_path = f"fiches/{user_id}.json"
+    fiche_path = str(lieu)+"fiches/"+str(user_id)+".json"
     reponse = ""
     if os.path.exists(fiche_path):
         with open(fiche_path, "r", encoding="utf-8") as f:
@@ -631,7 +633,7 @@ async def rang_suivant(interaction: discord.Interaction, membre: discord.Member)
     member = membre.name
     user_role = membre.roles
     try:
-        with open(f"fiches/{user_id}.json", "r", encoding="utf-8") as f:
+        with open(str(lieu)+"fiches/"+str(user_id)+".json", "r", encoding="utf-8") as f:
             fiche = json.load(f)
     except FileNotFoundError:
         await interaction.response.send_message("❌ " + str(pseudo) + " n'a pas créé de fiche.", ephemeral=True)
