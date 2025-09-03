@@ -1,0 +1,11 @@
+{
+  "Base": "https://t3.ftcdn.net/jpg/02/98/94/38/360_F_298943877_A4W7tVyZPCu6gNGuGXJUerZbXsWmblLb.jpg",
+  "Sabre": "https://cdn.discordapp.com/attachments/1396182232825069768/1396182451164020777/images.png?ex=687f21fc&is=687dd07c&hm=ed9608145e9e4a78295c280296337fb70e25d08b8f14a419b4f881107d508edc&",
+  "Faction": {
+    "Ordre Jedi": "https://cdn.discordapp.com/attachments/1396182232825069768/1396925147860045945/org_jedi.png?ex=687fdb6c&is=687e89ec&hm=0c10e181e5b68b50cbbfd5e758647315c85ecb82eaa511f3d9879d7bc8103da2&",
+    "Ordre Sith": "https://cdn.discordapp.com/attachments/1396182232825069768/1397259169169543269/images.png?ex=68811281&is=687fc101&hm=f41c80e774bb19c1387f019efb15e33c77d808cb2e30a3e35a2d34021091592f&",
+    "Contrebandier": "https://cdn.discordapp.com/attachments/1396182232825069768/1397262785611694101/images.png?ex=688115df&is=687fc45f&hm=d52961634638ad3cd94bf40dc241ba88b117a0b011c25773bd9316d364c50fb0&",
+    "Empire Ressuscité": "https://cdn.discordapp.com/attachments/1396182232825069768/1397264523450257428/latest.png?ex=6881177e&is=687fc5fe&hm=67788f2e8e1d124900ccb3b179f1deeae4592680fa94c6c5ceb028e47ac66cf2&",
+    "Nouvelle République": "https://cdn.discordapp.com/attachments/1396182232825069768/1397264788253446204/stickers-muraux-symbole-nouvelle-republique.png?ex=688117bd&is=687fc63d&hm=7f3bf37495badaf5f84d1cc98869b2b899f25dfbcc848e2b3822de0e896bb8ac&"
+  }
+}

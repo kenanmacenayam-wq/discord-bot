@@ -1,0 +1,80 @@
+{
+    "Bannis": {
+        "ListeBannis": ";"
+    },
+    "Ticket": 3,
+    "Wiki": "https://www.notion.so/Star-Wars-Galaxy-Rise-RP-23730611c56480ee824ff15fbcb1be13",
+    "Rangs": {
+        "Ordre Jedi": [
+            "Aspirant Jedi",
+            "Novice Jedi",
+            "Padawan Jedi",
+            "Chevalier Jedi",
+            "Ma\u00eetre Jedi"
+        ],
+        "Ordre Sith": [
+            "Aspirant Sith",
+            "Apprenti Sith",
+            "Acolyte Sith",
+            "Seigneur Sith",
+            "Seigneur Noir des Sith"
+        ],
+        "Contrebandier": [
+            "Aspirant Contrebandier",
+            "Moussaillon de l'Espace",
+            "Second",
+            "Capitaine Pirate",
+            "Roi des Pirates"
+        ],
+        "Empire Ressuscit\u00e9": [
+            "Aspirant Soldat (Empire Ressuscit\u00e9)",
+            "Cadet (Empire Ressuscit\u00e9)",
+            "Massacreur",
+            "Soldat Pr\u00e9torien",
+            "\u00c9tat-Major Imp\u00e9rial"
+        ],
+        "Nouvelle R\u00e9publique": [
+            "Aspirant Soldat (Nouvelle R\u00e9publique)",
+            "Cadet (Nouvelle R\u00e9publique)",
+            "Aide de camp",
+            "Soldat accompli",
+            "V\u00e9t\u00e9ran officier"
+        ]
+    },
+    "roles_competences": [
+        "Trakat\u00e0",
+        "Manipulation mentale",
+        "Pilotage avanc\u00e9 (Jedi/Sith)",
+        "Pilotage Rudimentaire (Jedi/Sith)",
+        "Hibernation m\u00e9ditative",
+        "Dissimulation d'aura",
+        "D\u00e9tection de Force",
+        "Traduction de Force",
+        "Persuasion de Force",
+        "Jar'Kai T\u00e9l\u00e9kin\u00e9tique",
+        "Lancer de Sabre",
+        "Science des Plantes",
+        "Cri de Force",
+        "R\u00e9sistance au poison",
+        "Cryokin\u00e9sie",
+        "Pyrokin\u00e9sie",
+        "T\u00e9l\u00e9pathie",
+        "\u00c9clair de Force lumineux",
+        "\u00c9clair de Force obscur",
+        "Soin de Force",
+        "Fl\u00e9au Mental",
+        "Pouss\u00e9e de Force",
+        "T\u00e9l\u00e9kin\u00e9sie",
+        "Initiation \u00e0 la Force",
+        "Zez'Kai",
+        "Niman",
+        "Makashi",
+        "Djem So",
+        "Soresu",
+        "Vaapad",
+        "Ataru",
+        "\u00c9tranglement de Force",
+        "Jar'Kai",
+        "Shii-Cho"
+    ]
+}
