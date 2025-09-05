@@ -732,6 +732,22 @@ def keep_alive():
     t = Thread(target=run)
     t.start()
 keep_alive()
+import requests, time
+import threading
+
+def auto_ping(url):
+    def ping():
+        while True:
+            try:
+                requests.get(url)
+                print("Ping réussi ✅")
+            except:
+                print("Ping raté ❌")
+            time.sleep(300)  # 5 minutes
+    t = threading.Thread(target=ping)
+    t.start()
+url="https://api.render.com/deploy/srv-d2ti126r433s73delbt0?key=o6ZoZJ03nd4"
+auto_ping(url)
 # Lancer le bot
 bot.run(os.getenv("DISCORD_TOKEN"))
 #Created by Farfadet, inspired by Sapin6508, and improved by ChatGPT
