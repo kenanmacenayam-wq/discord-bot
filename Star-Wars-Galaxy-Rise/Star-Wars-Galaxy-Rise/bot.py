@@ -746,7 +746,7 @@ def auto_ping(url):
             time.sleep(300)  # 5 minutes
     t = threading.Thread(target=ping)
     t.start()
-url="https://api.render.com/deploy/srv-d2ti126r433s73delbt0?key=o6ZoZJ03nd4"
+url="https://discord-bot-38wq.onrender.com"
 auto_ping(url)
 # Lancer le bot
 bot.run(os.getenv("DISCORD_TOKEN"))
