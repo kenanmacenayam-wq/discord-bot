@@ -93,7 +93,7 @@ def rang_Suivant(rang):
 roles_competences = user_data["roles_competences"]
 rolesPossibles = [user_data["Rangs"][i][0] for i in user_data["Rangs"]]
 factionsPossibles = [
-    "Nouvelle République", "Empire Ressuscité", "Ordre Jedi", "Ordre Sith", "Contrebandier"
+    "Ordre Jedi", "Ordre Sith", "Contrebandier"#,"Nouvelle République", "Empire Ressuscité"
 ]
 tousRoles = [user_data["Rangs"][i] for i in user_data["Rangs"]]
 
