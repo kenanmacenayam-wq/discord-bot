@@ -192,7 +192,11 @@ async def on_message(message):
     pseudo = message.author.display_name
     contenu = message.content
     bannis = user_data.get("Bannis")["ListeBannis"].split(";")
-    if nom in bannis:
+    if isinstance(message.channel, discord.TextChannel):
+        nom_salon = message.channel.name
+    else:
+        nom_salon = "DM"
+    if nom in bannis and nom_salon.startswith("ticket-")not in nom_salon:
         await message.delete()
         await message.author.send(
             str(pseudo) + ", tu n'as pas le droit de parler dans le serveur " +
@@ -291,7 +295,7 @@ async def afficher_image(interaction: discord.Interaction,
 
 
 #Ban un joueur : Farfadet
-@bot.tree.command(name="ban", description="(admin)Bannis un joueur")
+@bot.tree.command(name="mute", description="(admin)Empêche un joueur de parler")
 async def ban(interaction: discord.Interaction, nom: discord.Member):
     if not interaction.user.guild_permissions.administrator:
         await interaction.response.send_message(
@@ -311,7 +315,7 @@ async def ban(interaction: discord.Interaction, nom: discord.Member):
 
 
 #Déban un joueur : Farfadet
-@bot.tree.command(name="deban", description="(admin)Débannis un joueur")
+@bot.tree.command(name="demute", description="(admin)Annule le mute d'un joueur")
 async def deban(interaction: discord.Interaction, nom: discord.Member):
     if not interaction.user.guild_permissions.administrator:
         await interaction.response.send_message(
