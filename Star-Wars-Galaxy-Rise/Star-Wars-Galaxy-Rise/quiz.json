@@ -1,0 +1,779 @@
+{
+    "question": {
+        "Quel est le nom du p\u00e8re de Luke ?": [
+            "choix",
+            "Anakin",
+            "Luke",
+            "Anakin",
+            "Obi-Wan",
+            "Yoda"
+        ],
+        "Quel est le nom du p\u00e8re de Leia ?": [
+            "choix",
+            "Anakin",
+            "Luke",
+            "Anakin",
+            "Obi-Wan"
+        ],
+        "De quelle plan\u00e8te sont originaires les Wookiees ?": [
+            "choix",
+            "Kashyyyk",
+            "Dantooine",
+            "Naboo",
+            "Kashyyyk",
+            "Jakku",
+            "Endor",
+            "Alderaan"
+        ],
+        "Sur quelle plan\u00e8te est n\u00e9 Dark Sidious ?": [
+            "choix",
+            "Naboo",
+            "Dagobah",
+            "Serenno",
+            "Endor",
+            "Naboo",
+            "Mustafar"
+        ],
+        "Quelle est l'esp\u00e8ce de Dark Maul ?": [
+            "choix",
+            "Zabrak",
+            "Gungan",
+            "Twi'lek",
+            "Rodian",
+            "Zabrak"
+        ],
+        "O\u00f9 se situe Utapau ?": [
+            "choix",
+            "Bordure ext\u00e9rieure",
+            "Noyau profond",
+            "Colonies",
+            "Bordure ext\u00e9rieure",
+            "Bordure m\u00e9diane",
+            "Bordure int\u00e9rieure"
+        ],
+        "Quel est le nombre de midichloriens par cellule pr\u00e9sents chez Anakin ?": [
+            "nombre",
+            15000,
+            20000,
+            25000
+        ],
+        "Quel est le vrai nom de Dark Sidious ?": [
+            "choix",
+            "Sheev Palpatine",
+            "Sheev Palpatine",
+            "Cos Palpatine",
+            "Dars Palpatine",
+            "Wedge Palpatine"
+        ],
+        "Sur quelle plan\u00e8te est n\u00e9 Han Solo ?": [
+            "choix",
+            "Corellia",
+            "Corellia",
+            "Coruscant",
+            "Ord Mantell",
+            "Tatooine"
+        ],
+        "Qui est le ma\u00eetre de Qui-Gon Jinn ?": [
+            "choix",
+            "Dooku",
+            "Mace Windu",
+            "Yoda",
+            "Dooku",
+            "Sifo-Dyas"
+        ],
+        "Quel Jedi a command\u00e9 la cr\u00e9ation de l\u2019arm\u00e9e de clones ?": [
+            "choix",
+            "Sifo-Dyas",
+            "Qui-Gon Jinn",
+            "Sifo-Dyas",
+            "Plo Koon",
+            "Mace Windu"
+        ],
+        "Comment s\u2019appelle la plan\u00e8te natale de Dark Maul ?": [
+            "choix",
+            "Dathomir",
+            "Moraband",
+            "Iridonia",
+            "Mustafar",
+            "Dathomir"
+        ],
+        "Quel est le nom du Jedi aveugle dans Rogue One ?": [
+            "choix",
+            "Chirrut \u00cemwe",
+            "Baze Malbus",
+            "Lor San Tekka",
+            "Chirrut \u00cemwe",
+            "Saw Gerrera"
+        ],
+        "Comment s\u2019appelle le clone surnomm\u00e9 \u201cFives\u201d ?": [
+            "choix",
+            "CT-5555",
+            "CT-1409",
+            "CT-7567",
+            "CT-5555",
+            "CC-2224"
+        ],
+        "Quel est le nom de la plan\u00e8te oc\u00e9an o\u00f9 sont cr\u00e9\u00e9s les clones ?": [
+            "choix",
+            "Kamino",
+            "Kamino",
+            "Naboo",
+            "Mon Cala",
+            "Scarif"
+        ],
+        "Quelle est la particularit\u00e9 de l\u2019esp\u00e8ce de Yoda ?": [
+            "choix",
+            "Leur nom et leur plan\u00e8te sont inconnus",
+            "Ils sont immortels",
+            "Leur nom et leur plan\u00e8te sont inconnus",
+            "Ils communiquent uniquement par t\u00e9l\u00e9pathie",
+            "Ils sont li\u00e9s uniquement au c\u00f4t\u00e9 lumineux"
+        ],
+        "Quel Jedi survit \u00e0 l\u2019Ordre 66 et prend le nom de Ben ?": [
+            "choix",
+            "Obi-Wan Kenobi",
+            "Obi-Wan Kenobi",
+            "Caleb Dume",
+            "Quinlan Vos",
+            "Yoda"
+        ],
+        "Dans The Clone Wars, qui tue Savage Opress ?": [
+            "choix",
+            "Dark Sidious",
+            "Dark Sidious",
+            "Obi-Wan Kenobi",
+            "Asajj Ventress",
+            "Maul"
+        ],
+        "Quel Jedi utilise une technique de combat nomm\u00e9e \u201cVaapad\u201d ?": [
+            "choix",
+            "Mace Windu",
+            "Yoda",
+            "Mace Windu",
+            "Qui-Gon Jinn",
+            "Kit Fisto"
+        ],
+        "Qui est le premier propri\u00e9taire canon du Faucon Millenium ?": [
+            "choix",
+            "Lando Calrissian",
+            "Han Solo",
+            "Lando Calrissian",
+            "Dryden Vos",
+            "Qi\u2019ra"
+        ],
+        "Quel est le surnom de l\u2019Escadron Rogue (Rogue Squadron) ?": [
+            "choix",
+            "Les Ren\u00e9gats",
+            "Les Ren\u00e9gats",
+            "Les Chasseurs de l\u2019Ombre",
+            "Les Rebelles de l\u2019Espace",
+            "Les Faucons Rouges"
+        ],
+        "Qui est l\u2019apprenti de Dark Tyranus ?": [
+            "choix",
+            "Asajj Ventress",
+            "Asajj Ventress",
+            "Grievous",
+            "Maul",
+            "Savage Opress"
+        ],
+        "Comment s\u2019appelle la plan\u00e8te des Mandaloriens ?": [
+            "choix",
+            "Mandalore",
+            "Mandalore",
+            "Concord Dawn",
+            "Kalevala",
+            "Mandora"
+        ],
+        "Qui a cr\u00e9\u00e9 la r\u00e8gle des Deux chez les Sith ?": [
+            "choix",
+            "Dark Bane",
+            "Dark Revan",
+            "Dark Bane",
+            "Dark Malak",
+            "Dark Krayt"
+        ],
+        "Quelle couleur avait le sabre de Mace Windu ?": [
+            "choix",
+            "Violet",
+            "Vert",
+            "Bleu",
+            "Violet",
+            "Jaune"
+        ],
+        "Quelle station spatiale a d\u00e9truit Alderaan ?": [
+            "choix",
+            "L\u2019\u00c9toile Noire I",
+            "L\u2019\u00c9toile Noire I",
+            "L\u2019\u00c9toile Noire II",
+            "Le Croiseur Ex\u00e9cuteur",
+            "Le Finalizer"
+        ],
+        "Quel personnage dit : \u201cJe suis un Jedi, comme mon p\u00e8re avant moi\u201d ?": [
+            "choix",
+            "Luke Skywalker",
+            "Anakin Skywalker",
+            "Luke Skywalker",
+            "Obi-Wan Kenobi",
+            "Rey"
+        ],
+        "Qui a cr\u00e9\u00e9 le Darksaber ?": [
+            "choix",
+            "Tarre Vizsla",
+            "Revan",
+            "Tarre Vizsla",
+            "Pre Vizsla",
+            "Boba Fett"
+        ],
+        "Quelle plan\u00e8te sert de base secr\u00e8te aux rebelles dans Un Nouvel Espoir ?": [
+            "choix",
+            "Yavin 4",
+            "Endor",
+            "Hoth",
+            "Yavin 4",
+            "Scarif"
+        ],
+        "Qui est l\u2019\u00e9l\u00e8ve de Kanan Jarrus dans Rebels ?": [
+            "choix",
+            "Ezra Bridger",
+            "Ezra Bridger",
+            "Sabine Wren",
+            "Hera Syndulla",
+            "Zeb"
+        ],
+        "Quel est le mod\u00e8le du vaisseau de Boba Fett ?": [
+            "choix",
+            "Slave I",
+            "Slave I",
+            "Razor Crest",
+            "Outrider",
+            "Ghost"
+        ],
+        "Quel Jedi appara\u00eet en hologramme dans l\u2019Ordre 66 pour pr\u00e9venir les survivants ?": [
+            "choix",
+            "Obi-Wan Kenobi",
+            "Yoda",
+            "Obi-Wan Kenobi",
+            "Bail Organa",
+            "Mon Mothma"
+        ],
+        "Quel est le vrai nom de l\u2019Inquisiteur dans Rebels ?": [
+            "choix",
+            "Inconnu",
+            "Cal Kestis",
+            "Taron Malicos",
+            "Templin",
+            "Inconnu"
+        ],
+        "Quelle plan\u00e8te est choisie pour l\u2019Acad\u00e9mie Jedi de Luke ?": [
+            "choix",
+            "Ahch-To",
+            "Yavin 4",
+            "Dagobah",
+            "Ahch-To",
+            "Jakku"
+        ],
+        "Qui tue Snoke dans Les Derniers Jedi ?": [
+            "choix",
+            "Kylo Ren",
+            "Kylo Ren",
+            "Rey",
+            "Luke",
+            "Hux"
+        ],
+        "Quel clone est connu pour avoir r\u00e9sist\u00e9 \u00e0 l\u2019Ordre 66 gr\u00e2ce \u00e0 Ahsoka ?": [
+            "choix",
+            "Rex",
+            "Rex",
+            "Wolffe",
+            "Gregor",
+            "Echo"
+        ],
+        "Qui a form\u00e9 Dark Sidious ?": [
+            "choix",
+            "Dark Plagueis",
+            "Dark Plagueis",
+            "Dark Bane",
+            "Dark Tyranus",
+            "Dark Malgus"
+        ],
+        "Qui est le ma\u00eetre de Ahsoka Tano ?": [
+            "choix",
+            "Anakin Skywalker",
+            "Yoda",
+            "Obi-Wan Kenobi",
+            "Anakin Skywalker",
+            "Mace Windu"
+        ],
+        "Quel est le num\u00e9ro de Rex ?": [
+            "choix",
+            "CC-2224",
+            "CC-2224",
+            "CT-7567",
+            "CC-1010",
+            "CT-5555"
+        ],
+        "Quelle plan\u00e8te abrite le temple Jedi dans la s\u00e9rie ?": [
+            "choix",
+            "Coruscant",
+            "Coruscant",
+            "Naboo",
+            "Tatooine",
+            "Kamino"
+        ],
+        "Qui est le chef des Mandaloriens dans la s\u00e9rie ?": [
+            "choix",
+            "Pre Vizsla",
+            "Pre Vizsla",
+            "Bo-Katan Kryze",
+            "Sabine Wren",
+            "Gar Saxon"
+        ],
+        "Quel Sith manipule la guerre des clones dans l\u2019ombre ?": [
+            "choix",
+            "Darth Sidious",
+            "Darth Vader",
+            "Darth Maul",
+            "Darth Sidious",
+            "Count Dooku"
+        ],
+        "Quel est le vrai nom de Dark Maul ?": [
+            "choix",
+            "Darth Maul",
+            "Maul",
+            "Savage Opress",
+            "Maul Dathomir",
+            "Darth Maul"
+        ],
+        "Qui est le fr\u00e8re de Savage Opress ?": [
+            "choix",
+            "Darth Maul",
+            "Darth Vader",
+            "Darth Maul",
+            "Count Dooku",
+            "Obi-Wan Kenobi"
+        ],
+        "Quelle esp\u00e8ce est Kit Fisto ?": [
+            "choix",
+            "Nautolan",
+            "Twi\u2019lek",
+            "Nautolan",
+            "Mon Calamari",
+            "Rodien"
+        ],
+        "Quel chasseur de primes appara\u00eet dans la s\u00e9rie et sera le mentor de Boba Fett ?": [
+            "choix",
+            "Cad Bane",
+            "Cad Bane",
+            "Bossk",
+            "Dengar",
+            "IG-88"
+        ],
+        "Qui tue le g\u00e9n\u00e9ral Grievous dans la s\u00e9rie ?": [
+            "choix",
+            "Obi-Wan Kenobi",
+            "Obi-Wan Kenobi",
+            "Anakin Skywalker",
+            "Yoda",
+            "Mace Windu"
+        ],
+        "Quelle plan\u00e8te est connue pour sa cr\u00e9ation de clones ?": [
+            "choix",
+            "Kamino",
+            "Kamino",
+            "Geonosis",
+            "Naboo",
+            "Ryloth"
+        ],
+        "Quel est le nom du virus que tente de r\u00e9pandre l\u2019Empire dans certaines saisons ?": [
+            "choix",
+            "Poxin",
+            "Poxin",
+            "Krytos",
+            "Spora",
+            "Ryll"
+        ],
+        "Que devient Anakin Skywalker lorsqu\u2019il passe du c\u00f4t\u00e9 obscur ?": [
+            "choix",
+            "Dark Vador",
+            "Dark Tyranus",
+            "Dark Revan",
+            "Dark Vador",
+            "Dark Krayt"
+        ],
+        "Dans l\u2019\u00c9pisode IX, qui manipule Kylo Ren en secret ?": [
+            "choix",
+            "Dark Sidious",
+            "Dark Sidious",
+            "Dark Bane",
+            "Dark Plagueis",
+            "Snoke"
+        ],
+        "Quel Sith a failli an\u00e9antir l\u2019Ordre Jedi en absorbant leur Force vitale sur une plan\u00e8te enti\u00e8re ?": [
+            "choix",
+            "Dark Nihilus",
+            "Dark Malak",
+            "Dark Nihilus",
+            "Dark Sion",
+            "Dark Krayt"
+        ],
+        "Quelle \u00e9tait la v\u00e9ritable identit\u00e9 du Comte Dooku ?": [
+            "choix",
+            "Dark Tyranus",
+            "Dark Nihilus",
+            "Dark Tyranus",
+            "Dark Bane",
+            "Dark Plagueis"
+        ],
+        "Qui tue Dark Sidious dans Le Retour du Jedi ?": [
+            "choix",
+            "Dark Vador",
+            "Luke Skywalker",
+            "Dark Vador",
+            "Obi-Wan Kenobi",
+            "Mace Windu"
+        ],
+        "Quel Sith avait comme but de cr\u00e9er la vie \u00e0 partir de la Force ?": [
+            "choix",
+            "Dark Plagueis",
+            "Dark Nihilus",
+            "Dark Bane",
+            "Dark Plagueis",
+            "Dark Revan"
+        ],
+        "Dans The Clone Wars, qui est l\u2019apprenti de Dark Tyranus ?": [
+            "choix",
+            "a et c (Savage Opress et Asajj Ventress)",
+            "Savage Opress",
+            "Dark Malak",
+            "Asajj Ventress",
+            "a et c"
+        ],
+        "Quel Sith revient sous forme de clone dans l\u2019\u00c9pisode IX ?": [
+            "choix",
+            "Dark Sidious",
+            "Dark Malgus",
+            "Dark Plagueis",
+            "Dark Sidious",
+            "Dark Krayt"
+        ],
+        "Quelle est la couleur de sabre associ\u00e9e aux Jedi Consulaires (plus tourn\u00e9s vers la diplomatie et la Force) ?": [
+            "choix",
+            "Vert",
+            "Jaune",
+            "Bleu",
+            "Vert",
+            "Rouge"
+        ],
+        "Quelle couleur de sabre est presque exclusivement associ\u00e9e aux Sith ?": [
+            "choix",
+            "Rouge",
+            "Rouge",
+            "Bleu",
+            "Jaune",
+            "Blanc"
+        ],
+        "Quel Jedi est c\u00e9l\u00e8bre pour avoir un sabre laser violet ?": [
+            "choix",
+            "Mace Windu",
+            "Anakin Skywalker",
+            "Mace Windu",
+            "Qui-Gon Jinn",
+            "Luke Skywalker"
+        ],
+        "Comment les Sith obtiennent-ils un cristal rouge pour leur sabre ?": [
+            "choix",
+            "En le corrompant par le c\u00f4t\u00e9 obscur (proc\u00e9d\u00e9 du 'bleeding')",
+            "En le forgeant dans un volcan",
+            "En le corrompant par le c\u00f4t\u00e9 obscur (proc\u00e9d\u00e9 du 'bleeding')",
+            "En le volant aux Jedi",
+            "En l\u2019achetant sur Korriban"
+        ],
+        "Quelle est la particularit\u00e9 du sabre de Kylo Ren ?": [
+            "choix",
+            "Il a une garde en forme de croix avec deux petites lames lat\u00e9rales",
+            "Il a deux lames comme Dark Maul",
+            "Il a une garde en forme de croix avec deux petites lames lat\u00e9rales",
+            "Il change de couleur selon l\u2019humeur",
+            "Il est blanc"
+        ],
+        "Quelle est la couleur du sabre d\u2019Ahsoka Tano apr\u00e8s avoir quitt\u00e9 l\u2019Ordre Jedi ?": [
+            "choix",
+            "Blanc",
+            "Jaune",
+            "Bleu",
+            "Blanc",
+            "Vert"
+        ],
+        "Comment appelle-t-on la technique de fabrication d\u2019un sabre laser par un Jedi ?": [
+            "choix",
+            "Le rite du cristal Kyber",
+            "L\u2019assemblage",
+            "L\u2019illumination",
+            "Le rite du cristal Kyber",
+            "La forge des Jedi"
+        ],
+        "Quelle est la couleur du sabre du Temple Jedi, utilis\u00e9 par les Sentinelles (gardes du Temple) ?": [
+            "choix",
+            "Jaune",
+            "Rouge",
+            "Jaune",
+            "Bleu",
+            "Violet"
+        ],
+        "Dans l\u2019\u00c9pisode VI, quelle est la couleur du nouveau sabre laser fabriqu\u00e9 par Luke Skywalker ?": [
+            "choix",
+            "Vert",
+            "Bleu",
+            "Rouge",
+            "Vert",
+            "Violet"
+        ],
+        "Qui a \u00e9lev\u00e9 Luke Skywalker sur Tatooine ?": [
+            "choix",
+            "Owen et Beru Lars",
+            "Owen et Beru Lars",
+            "Bail Organa et Breha",
+            "Shmi Skywalker",
+            "Yoda"
+        ],
+        "Qui est la s\u0153ur jumelle de Luke Skywalker ?": [
+            "choix",
+            "Leia Organa",
+            "Padm\u00e9 Amidala",
+            "Rey",
+            "Leia Organa",
+            "Ahsoka Tano"
+        ],
+        "Quel Jedi devient le ma\u00eetre d\u2019Anakin Skywalker ?": [
+            "choix",
+            "Obi-Wan Kenobi",
+            "Qui-Gon Jinn",
+            "Yoda",
+            "Obi-Wan Kenobi",
+            "Mace Windu"
+        ],
+        "Comment s\u2019appelle le mentor de Luke Skywalker sur Dagobah ?": [
+            "choix",
+            "Yoda",
+            "Obi-Wan Kenobi",
+            "Qui-Gon Jinn",
+            "Yoda",
+            "Mace Windu"
+        ],
+        "Qui est le copilote de Han Solo dans le Faucon Millenium ?": [
+            "choix",
+            "Chewbacca",
+            "R2-D2",
+            "C-3PO",
+            "Lando Calrissian",
+            "Chewbacca"
+        ],
+        "Qui tue Han Solo dans Le R\u00e9veil de la Force ?": [
+            "choix",
+            "Kylo Ren",
+            "Kylo Ren",
+            "Dark Vador",
+            "Snoke",
+            "Capitaine Phasma"
+        ],
+        "Qui est la m\u00e8re de Luke et Leia ?": [
+            "choix",
+            "Padm\u00e9 Amidala",
+            "Mon Mothma",
+            "Shmi Skywalker",
+            "Padm\u00e9 Amidala",
+            "Satine Kryze"
+        ],
+        "Quel est le v\u00e9ritable nom de Kylo Ren ?": [
+            "choix",
+            "Ben Solo",
+            "Ben Kenobi",
+            "Ben Solo",
+            "Jacen Solo",
+            "Anakin Solo"
+        ],
+        "Qui entra\u00eene Rey dans l\u2019\u00c9pisode VIII (Les Derniers Jedi) ?": [
+            "choix",
+            "Luke Skywalker",
+            "Luke Skywalker",
+            "Leia Organa",
+            "Han Solo",
+            "Yoda"
+        ],
+        "Quel vaisseau est pilot\u00e9 par Han Solo et Chewbacca ?": [
+            "choix",
+            "Faucon Millenium",
+            "X-wing",
+            "TIE Fighter",
+            "Faucon Millenium",
+            "Slave I"
+        ],
+        "Quel est le chasseur stellaire embl\u00e9matique des Jedi ?": [
+            "choix",
+            "X-wing",
+            "TIE Fighter",
+            "X-wing",
+            "Star Destroyer",
+            "Millennium Falcon"
+        ],
+        "Quel est le vaisseau personnel de Dark Vador ?": [
+            "choix",
+            "TIE Advanced x1",
+            "TIE Interceptor",
+            "TIE Advanced x1",
+            "Slave I",
+            "Executor"
+        ],
+        "Quel vaisseau est pilot\u00e9 par Boba Fett ?": [
+            "choix",
+            "Slave I",
+            "Slave I",
+            "TIE Fighter",
+            "X-wing",
+            "Death Star"
+        ],
+        "Quel est le superarme mobile capable de d\u00e9truire des plan\u00e8tes ?": [
+            "choix",
+            "Death Star",
+            "Star Destroyer",
+            "Death Star",
+            "Executor",
+            "TIE Bomber"
+        ],
+        "Quel vaisseau g\u00e9ant sert de quartier g\u00e9n\u00e9ral \u00e0 l\u2019Empire et aux Sith ?": [
+            "choix",
+            "Star Destroyer",
+            "Star Destroyer",
+            "X-wing",
+            "Millennium Falcon",
+            "TIE Advanced"
+        ],
+        "Quel vaisseau utilise l\u2019Alliance Rebelle pour des missions d\u2019infiltration rapide ?": [
+            "choix",
+            "A-wing",
+            "TIE Bomber",
+            "Y-wing",
+            "A-wing",
+            "B-wing"
+        ],
+        "Quel vaisseau lourd de l\u2019Alliance Rebelle est sp\u00e9cialis\u00e9 pour le bombardement des superarmes ?": [
+            "choix",
+            "B-wing",
+            "Y-wing",
+            "X-wing",
+            "A-wing",
+            "B-wing"
+        ],
+        "Quel est le vaisseau de commandement de l\u2019Amiral Thrawn dans Rebels ?": [
+            "choix",
+            "Chimaera",
+            "Star Destroyer",
+            "Chimaera",
+            "Executor",
+            "Interdictor"
+        ],
+        "Quel vaisseau est le plus rapide de la galaxie, selon la r\u00e9putation dans la saga ?": [
+            "choix",
+            "Faucon Millenium",
+            "Slave I",
+            "X-wing",
+            "Faucon Millenium",
+            "TIE Fighter"
+        ],
+        "Sur quelle plan\u00e8te Luke Skywalker a-t-il grandi ?": [
+            "choix",
+            "Tatooine",
+            "Tatooine",
+            "Naboo",
+            "Coruscant",
+            "Endor"
+        ],
+        "Quelle plan\u00e8te est connue pour ses immenses oc\u00e9ans et pour \u00eatre le lieu de naissance de Padm\u00e9 Amidala ?": [
+            "choix",
+            "Naboo",
+            "Alderaan",
+            "Naboo",
+            "Kashyyyk",
+            "Kamino"
+        ],
+        "Quelle plan\u00e8te est le centre politique de la R\u00e9publique et plus tard de l\u2019Empire ?": [
+            "choix",
+            "Coruscant",
+            "Coruscant",
+            "Mustafar",
+            "Hoth",
+            "Dantooine"
+        ],
+        "Sur quelle plan\u00e8te se trouve la base rebelle dans l\u2019\u00c9pisode V ?": [
+            "choix",
+            "Hoth",
+            "Endor",
+            "Hoth",
+            "Dagobah",
+            "Jakku"
+        ],
+        "Quelle plan\u00e8te volcanique est le lieu du duel final entre Obi-Wan Kenobi et Anakin Skywalker dans l\u2019\u00c9pisode III ?": [
+            "choix",
+            "Mustafar",
+            "Mustafar",
+            "Geonosis",
+            "Felucia",
+            "Utapau"
+        ],
+        "Quelle plan\u00e8te foresti\u00e8re est le monde natal des Wookiees ?": [
+            "choix",
+            "Kashyyyk",
+            "Kashyyyk",
+            "Endor",
+            "Felucia",
+            "Dathomir"
+        ],
+        "Quelle plan\u00e8te est enti\u00e8rement recouverte d\u2019eau et abrite des villes sous-marines ?": [
+            "choix",
+            "Kamino",
+            "Naboo",
+            "Kamino",
+            "Coruscant",
+            "Polis Massa"
+        ],
+        "Quelle lune foresti\u00e8re est utilis\u00e9e comme base par l\u2019Alliance Rebelle dans l\u2019\u00c9pisode VI ?": [
+            "choix",
+            "Endor",
+            "Endor",
+            "Hoth",
+            "Dagobah",
+            "Tatooine"
+        ],
+        "Sur quelle plan\u00e8te Rey trouve-t-elle Luke Skywalker \u00e0 la fin de l\u2019\u00c9pisode VII ?": [
+            "choix",
+            "Ahch-To",
+            "Ahch-To",
+            "Takodana",
+            "Jakku",
+            "Crait"
+        ],
+        "Quelle plan\u00e8te est d\u00e9truite par l\u2019\u00c9toile de la Mort dans l\u2019\u00c9pisode IV ?": [
+            "choix",
+            "Alderaan",
+            "Alderaan",
+            "Naboo",
+            "Geonosis",
+            "Mustafar"
+        ]
+    },
+    "score": {
+        "1114666483520389132": [
+            108,
+            83
+        ],
+        "948591765504532540": [
+            10,
+            20
+        ],
+        "1033642005277978694": [
+            2,
+            4
+        ]
+    }
+}
