@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
-from discord.ui import Select, View
-from discord import app_commands
+from discord.ui import Select, View, Button, Modal, TextInput#Ajout récent pour les 3 derniers
+from discord import app_commands, emoji
 from discord.app_commands import Choice
 from typing import Optional
 import os
@@ -96,6 +96,35 @@ factionsPossibles = [
     "Ordre Jedi", "Ordre Sith", "Contrebandier"#,"Nouvelle République", "Empire Ressuscité"
 ]
 tousRoles = [user_data["Rangs"][i] for i in user_data["Rangs"]]
+
+
+#Ajout récent
+class ChoixView(View):
+    def __init__(self, options):
+        super().__init__()
+        self.value = None
+        for label in options:
+            bouton = Button(label=label, style=discord.ButtonStyle.primary)
+            async def callback(inter, label=label):
+                self.value = label
+                await inter.response.defer(thinking=False, ephemeral=True)
+                self.stop()
+            bouton.callback = callback
+            self.add_item(bouton)
+#Ajout récent
+class NombreModal(Modal):
+    def __init__(self, question):
+        super().__init__(title=str(question))
+        self.nombre = TextInput(label="Entre ta réponse", placeholder="Ex: 42", required=True)
+        self.add_item(self.nombre)
+        self.value = None
+    async def on_submit(self, interaction: discord.Interaction):
+        try:
+            self.value = int(self.nombre.value)
+            await interaction.response.defer(thinking=False, ephemeral=True)
+            self.stop()
+        except ValueError:
+            await interaction.response.send_message("⚠️ Ce n'est pas un nombre valide", ephemeral=True)
 
 # Menu déroulant
 class RoleSelect(Select):
@@ -695,7 +724,97 @@ async def fermer_ticket(interaction: discord.Interaction):
         await salon.delete()
     else:
         await interaction.response.send_message("❌ Cette commande ne peut être utilisée que dans un salon de ticket.", ephemeral=True)
-        
+
+#Début des ajouts
+class QuizView(discord.ui.View):
+    def __init__(self, user_id: int):
+        super().__init__(timeout=None)  # pas de limite de temps
+        self.user_id = user_id
+    @discord.ui.button(label="Question suivante ➡️", style=discord.ButtonStyle.primary, emoji=None)
+    async def suivant(self, interaction: discord.Interaction, button: discord.ui.Button):
+        await poser_question(interaction, self)
+
+
+async def poser_question(interaction: discord.Interaction, viewSuivant: QuizView):
+    user_id = str(interaction.user.id)
+    with open("quiz.json", "r") as f:
+        quiz = json.load(f)
+    question = random.choice([champs for champs, valeur in quiz["question"].items()])
+    try:
+        valeur=quiz["score"][user_id]
+    except:
+        quiz["score"][user_id] = [0,0]
+    if quiz["question"][question][0] == "choix":
+        labels = quiz["question"][question][2:]
+        view = ChoixView(labels)
+        await interaction.response.send_message("**"+str(question)+"**", view=view, ephemeral=True)
+        await view.wait()
+        if view.value:
+            if view.value == quiz["question"][question][1]:
+                quiz["score"][user_id][0] += 1
+                await interaction.edit_original_response(content="**"+str(question)+"** *"+str(view.value)+"*\nBonne réponse !", view=viewSuivant)
+            else:
+                quiz["score"][user_id][1] += 1
+                await interaction.edit_original_response(content="**"+str(question)+"** *"+str(view.value)+"*\nMauvaise réponse !\nLa bonne réponse était "+str(quiz["question"][question][1]), view=viewSuivant)
+        else:
+            await interaction.edit_original_response(content="Temps écouler !", view=None)
+    elif quiz["question"][question][0] == "nombre":
+        valeur=NombreModal(question)
+        await interaction.response.send_modal(valeur)
+        await valeur.wait()
+        if valeur.value:
+            if valeur.value == int(quiz["question"][question][2]):
+                quiz["score"][user_id][0] += 1
+                await interaction.followup.send("**"+str(question)+"** *"+str(valeur.value)+"*\nBonne réponse !", view=viewSuivant, ephemeral=True)
+            elif int(quiz["question"][question][1]) <= valeur.value and valeur.value <= int(quiz["question"][question][3]):
+                 await interaction.followup.send("**"+str(question)+"** *"+str(valeur.value)+"*\nPresque !\nLa bonne réponse était "+str(quiz["question"][question][2]), view=viewSuivant, ephemeral=True)
+            else:
+                quiz["score"][user_id][1] += 1
+                await interaction.followup.send("**"+str(question)+"\n** *"+str(valeur.value)+"*Mauvaise réponse !\nLa bonne réponse était "+str(quiz["question"][question][2]), view=viewSuivant, ephemeral=True)
+    with open("quiz.json", "w") as f:
+        json.dump(quiz, f, indent=4)
+
+
+@bot.tree.command(name="quiz", description="Défi tes amis dans un quiz !")
+async def quiz(interaction: discord.Interaction):
+    view = QuizView(interaction.user.id)
+    await poser_question(interaction, view)
+
+
+@bot.tree.command(name="stats", description="Regarde qui est meilleur au quiz !")
+async def stats(interaction: discord.Interaction):
+    guild = interaction.guild
+    if guild is None:
+        await interaction.response.send_message("Cette commande doit être utilisée sur un serveur.", ephemeral=True)
+        return
+    with open("quiz.json", "r") as f:
+        quiz = json.load(f)
+    embed = discord.Embed(title="📖 Stats", color=0x3498db)
+    embed.set_footer(text=f"JediRiseBot – {interaction.user.display_name}")
+    tableau = []
+    for champ, valeur in quiz["score"].items():
+        member = guild.get_member(champ)
+        if member is None:
+            try:
+                member = await guild.fetch_member(champ)
+            except discord.NotFound:
+                continue
+            except discord.Forbidden:
+                continue
+        pourcentage = round(valeur[0]/(valeur[0]+valeur[1])*100,2)
+        score=str(valeur[0])+" ✅  "+str(valeur[1])+" ❌"+"  ("+str(pourcentage)+"%)"
+        tableau.append([pourcentage, member.display_name, score])
+    tableau.sort(reverse=True)
+    classement = 1
+    emojis = ["🥇", "🥈","🥉"]
+    for valeurs in tableau:
+        if classement<=3:
+            emoji=emojis[classement-1]
+        else:
+            emoji=str(classement)+"."
+        embed.add_field(name=emoji+" "+valeurs[1], value=valeurs[2], inline=False)
+        classement+=1
+    await interaction.response.send_message(embed=embed, ephemeral=True)
 
 
 
