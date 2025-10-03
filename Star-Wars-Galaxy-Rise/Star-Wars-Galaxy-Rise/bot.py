@@ -737,7 +737,7 @@ class QuizView(discord.ui.View):
 
 async def poser_question(interaction: discord.Interaction, viewSuivant: QuizView):
     user_id = str(interaction.user.id)
-    with open("quiz.json", "r") as f:
+    with open(str(lieu)+"quiz.json", "r") as f:
         quiz = json.load(f)
     question = random.choice([champs for champs, valeur in quiz["question"].items()])
     try:
@@ -771,7 +771,7 @@ async def poser_question(interaction: discord.Interaction, viewSuivant: QuizView
             else:
                 quiz["score"][user_id][1] += 1
                 await interaction.followup.send("**"+str(question)+"\n** *"+str(valeur.value)+"*Mauvaise réponse !\nLa bonne réponse était "+str(quiz["question"][question][2]), view=viewSuivant, ephemeral=True)
-    with open("quiz.json", "w") as f:
+    with open(str(lieu)+"quiz.json", "w") as f:
         json.dump(quiz, f, indent=4)
 
 
@@ -787,7 +787,7 @@ async def stats(interaction: discord.Interaction):
     if guild is None:
         await interaction.response.send_message("Cette commande doit être utilisée sur un serveur.", ephemeral=True)
         return
-    with open("quiz.json", "r") as f:
+    with open(str(lieu)+"quiz.json", "r") as f:
         quiz = json.load(f)
     embed = discord.Embed(title="📖 Stats", color=0x3498db)
     embed.set_footer(text=f"JediRiseBot – {interaction.user.display_name}")
