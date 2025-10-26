@@ -139,4 +139,3 @@ def nomPropre(texte=None, commun=False):
         if commun:
             return chercher(l,orthographe=True)
         return l
-newTexte('Texte.txt', genre='fichier')
