@@ -277,7 +277,7 @@ async def on_message(message):
             await message.channel.send(reponse)
     await bot.process_commands(message)
 
-
+"""
 @bot.tree.command(name="actualiser",
                   description="(admin)Actualise la liste des compétences")
 async def actualiser(interaction: discord.Interaction):
@@ -322,7 +322,7 @@ async def afficher_image(interaction: discord.Interaction,
     except Exception as e:
         print("❌ Impossible d'afficher l'image.\n" + str(e))
         await interaction.response.send_message("❌ Impossible d'afficher l'image.", ephemeral=True)
-
+"""
 
 #Ban un joueur : Farfadet
 @bot.tree.command(name="mute", description="(admin)Empêche un joueur de parler")
