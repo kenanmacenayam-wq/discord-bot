@@ -4,6 +4,7 @@ from discord.ui import Select, View, Button, Modal, TextInput#Ajout récent pour
 from discord import app_commands, emoji
 from discord.app_commands import Choice
 from typing import Optional
+from traitement import *
 import os
 import json
 import re
