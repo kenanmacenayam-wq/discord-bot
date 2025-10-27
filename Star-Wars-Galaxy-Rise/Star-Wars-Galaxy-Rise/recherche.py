@@ -90,7 +90,7 @@ def rechercher(query, partieLu='sommaire', enregistrer=False, chemin=''):
     html = response.text
     #soup = BeautifulSoup(html, "html.parser") normalement c'est inutile
     liens = extract_links_from_ddg(html)
-    return (str(liens)+'\n\n'+str(query)+'\n\n'+str(str(response)[:100])+'\n\n'+str(html))#Debug
+    return (str(liens)+'\n\n'+str(response.url)+'\n\n'+str(str(response)[:100])+'\n\n'+str(html))#Debug
     toutTexte=[]
     for lien in liens:
         texte = lire_lien(lien, partieLu)
