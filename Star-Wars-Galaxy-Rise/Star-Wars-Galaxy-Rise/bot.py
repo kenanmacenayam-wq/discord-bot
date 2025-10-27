@@ -589,7 +589,10 @@ async def lore(interaction: discord.Interaction, mot_cle: str):
         await interaction.response.send_message(embed=embed)
     elif True:
         await interaction.response.send_message("Recherche internet...", ephemeral=True)
-        await interaction.edit_original_response(content=( "Ceci est un résumer peu pertinant d'une recherche internet !\n\n"+str(rechercher(mot_cle)) ))
+        try:
+            await interaction.edit_original_response(content=( "Ceci est un résumer peu pertinant d'une recherche internet !\n\n"+str(rechercher(mot_cle)) ))
+        except Exception as e:
+            await interaction.edit_original_response(content="Une erreur s'est produite :\n"str(e))
     else:
         await interaction.response.send_message(
             "❌ Aucun lore trouvé pour ce mot-clé.")
