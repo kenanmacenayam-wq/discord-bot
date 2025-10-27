@@ -4,4 +4,4 @@ requests
 flask
 bs4
 googletrans
-urllib.parse
+urllib
