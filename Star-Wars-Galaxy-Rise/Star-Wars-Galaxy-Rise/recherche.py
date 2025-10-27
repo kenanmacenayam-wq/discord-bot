@@ -23,6 +23,7 @@ def extract_links_from_ddg(html, max_links=10):
         for a in soup.find_all("a", href=True):
             href = a["href"]
             found.append(href)
+    print('found :', found)
     normalized = []
     for href in found:
         parsed = urlparse(href)
@@ -36,6 +37,7 @@ def extract_links_from_ddg(html, max_links=10):
         if href.startswith("/"):
             href = urljoin("https://duckduckgo.com", href)
         normalized.append(href)
+    print('nomalized :', normalized)
     cleaned = []
     seen = set()
     for link in normalized:
@@ -49,6 +51,7 @@ def extract_links_from_ddg(html, max_links=10):
         cleaned.append(link)
         if len(cleaned) >= max_links:
             break
+    print('cleaned ', cleaned)
     return cleaned
 def lire_lien(urlLien, partieLu='sommaire'):
     if "wikipedia.org/wiki/" in urlLien:
