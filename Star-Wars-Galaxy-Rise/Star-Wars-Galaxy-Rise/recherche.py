@@ -7,7 +7,7 @@ import time
 HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36"}
 SESSION = requests.Session()
 SESSION.headers.update(HEADERS)
-SESSION.cookies.set("SOCS", "CAESNQgKEitib3FfaWRlbnRpdHlmcm9udGVuZHVpc2VydmVyXzIwMjUxMDIyLjA2X3AwGgJmciACGgYIgODlxwY")
+#SESSION.cookies.set("SOCS", "CAESNQgKEitib3FfaWRlbnRpdHlmcm9udGVuZHVpc2VydmVyXzIwMjUxMDIyLjA2X3AwGgJmciACGgYIgODlxwY")
 TIMEOUT = 10
 URL = "https://duckduckgo.com/html/"
 translator = Translator()
@@ -93,7 +93,7 @@ def rechercher(query, partieLu='sommaire', enregistrer=False, chemin=''):
         if texte:
             toutTexte.append(texte)
     if toutTexte==[]:
-        return (str(liens)+'\n\n\n'+str(html))
+        return (str(liens)+'\n\n'+str(query)+'\n\n'+str(str(response)[:100])+'\n\n'+str(html))
     if enregistrer:
         query=list(query)
         for i in ['?','/',':','*','"','<','>','|','\\']:
