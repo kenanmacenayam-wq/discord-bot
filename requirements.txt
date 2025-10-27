@@ -3,3 +3,4 @@ Pillow
 requests
 flask
 bs4
+googletrans
