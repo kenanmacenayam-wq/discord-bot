@@ -82,11 +82,10 @@ def lire_lien(urlLien, partieLu='sommaire'):
         return str(".".join(texte[:500].split(".")[:-1]))+"."
 def rechercher(query, partieLu='sommaire', enregistrer=False, chemin=''):
     params = {"q": query}
-    #response = SESSION.get(URL, params=params, timeout=TIMEOUT)
-    #response.raise_for_status()
-    response = requests.get(URL+str(query), headers=HEADERS)#Pas sur que ça marche
+    response = SESSION.get(URL, params=params, timeout=TIMEOUT)
+    response.raise_for_status()
     html = response.text
-    soup = BeautifulSoup(html, "html.parser")
+    #soup = BeautifulSoup(html, "html.parser") normalement c'est inutile
     liens = extract_links_from_ddg(html)
     toutTexte=[]
     for lien in liens:
