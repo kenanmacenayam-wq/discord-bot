@@ -92,6 +92,8 @@ def rechercher(query, partieLu='sommaire', enregistrer=False, chemin=''):
         texte = lire_lien(lien, partieLu)
         if texte:
             toutTexte.append(texte)
+    if toutTexte==[]:
+        return lien, html
     if enregistrer:
         query=list(query)
         for i in ['?','/',':','*','"','<','>','|','\\']:
