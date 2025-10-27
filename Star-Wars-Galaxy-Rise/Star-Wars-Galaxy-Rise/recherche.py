@@ -4,12 +4,12 @@ from bs4 import BeautifulSoup
 from urllib.parse import urljoin, urlparse, parse_qs, unquote
 from googletrans import Translator
 import time
-headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36"}
-session = requests.Session()
-session.headers.update(headers)
-session.cookies.set("SOCS", "CAESNQgKEitib3FfaWRlbnRpdHlmcm9udGVuZHVpc2VydmVyXzIwMjUxMDIyLjA2X3AwGgJmciACGgYIgODlxwY")
+HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36"}
+SESSION = requests.Session()
+SESSION.headers.update(HEADERS)
+SESSION.cookies.set("SOCS", "CAESNQgKEitib3FfaWRlbnRpdHlmcm9udGVuZHVpc2VydmVyXzIwMjUxMDIyLjA2X3AwGgJmciACGgYIgODlxwY")
 TIMEOUT = 10
-url = "https://duckduckgo.com/html/"
+URL = "https://duckduckgo.com/html/"
 translator = Translator()
 lieu="Star-Wars-Galaxy-Rise/Star-Wars-Galaxy-Rise/"
 def extract_links_from_ddg(html, max_links=10):
@@ -50,14 +50,14 @@ def extract_links_from_ddg(html, max_links=10):
         if len(cleaned) >= max_links:
             break
     return cleaned
-def lire_lien(url, partieLu='sommaire'):
-    if "wikipedia.org/wiki/" in url:
-        titre = url.split("/wiki/")[-1]
+def lire_lien(urlLien, partieLu='sommaire'):
+    if "wikipedia.org/wiki/" in urlLien:
+        titre = urlLien.split("/wiki/")[-1]
         titre = titre.split("?")[0]
         api_url = f"https://fr.wikipedia.org/api/rest_v1/page/summary/{titre}"
         if partieLu=='tout':
             api_url = f"https://fr.wikipedia.org/api/rest_v1/page/html/{titre}"
-        r = requests.get(api_url,headers=headers,timeout=TIMEOUT)
+        r = requests.get(api_url,headers=HEADERS,timeout=TIMEOUT)
         if r.status_code == 200:
             if partieLu=='tout':
                 soup = BeautifulSoup(r.text, "html.parser")
@@ -66,11 +66,11 @@ def lire_lien(url, partieLu='sommaire'):
                 return texte
             return r.json().get("extract")
     try:
-        response = requests.get(url, headers=headers)
+        response = requests.get(urlLien, headers=HEADERS)
     except:
         time.sleep(0.5)
         try:
-            response = requests.get(url, headers=headers)
+            response = requests.get(urlLien, headers=HEADERS)
         except:
             return "Introuvable !"
     soup = BeautifulSoup(response.text, "html.parser")
@@ -82,7 +82,7 @@ def lire_lien(url, partieLu='sommaire'):
         return str(".".join(texte[:500].split(".")[:-1]))+"."
 def rechercher(query, partieLu='sommaire', enregistrer=False, chemin=''):
     params = {"q": query}
-    response = session.get(url, params=params, timeout=TIMEOUT)
+    response = SESSION.get(URL, params=params, timeout=TIMEOUT)
     response.raise_for_status()
     html = response.text
     soup = BeautifulSoup(html, "html.parser")
