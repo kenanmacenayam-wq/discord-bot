@@ -2,3 +2,4 @@ discord.py
 Pillow
 requests
 flask
+bs4
