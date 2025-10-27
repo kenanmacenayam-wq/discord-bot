@@ -52,7 +52,7 @@ def extract_links_from_ddg(html, max_links=10):
         if len(cleaned) >= max_links:
             break
     print('cleaned ', cleaned)
-    return cleaned
+    return cleaned, normalized, found #Les 2 derniers sont pour debug
 def lire_lien(urlLien, partieLu='sommaire'):
     if "wikipedia.org/wiki/" in urlLien:
         titre = urlLien.split("/wiki/")[-1]
@@ -90,13 +90,14 @@ def rechercher(query, partieLu='sommaire', enregistrer=False, chemin=''):
     html = response.text
     #soup = BeautifulSoup(html, "html.parser") normalement c'est inutile
     liens = extract_links_from_ddg(html)
+    return (str(liens)+'\n\n'+str(query)+'\n\n'+str(str(response)[:100])+'\n\n'+str(html))#Debug
     toutTexte=[]
     for lien in liens:
         texte = lire_lien(lien, partieLu)
         if texte:
             toutTexte.append(texte)
     if toutTexte==[]:
-        return (str(liens)+'\n\n'+str(query)+'\n\n'+str(str(response)[:100])+'\n\n'+str(html))
+        return (str(liens)+'\n\n'+str(query)+'\n\n'+str(str(response)[:100])+'\n\n'+str(html))#Utile en cas de bug
     if enregistrer:
         query=list(query)
         for i in ['?','/',':','*','"','<','>','|','\\']:
