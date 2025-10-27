@@ -589,7 +589,7 @@ async def lore(interaction: discord.Interaction, mot_cle: str):
         await interaction.response.send_message(embed=embed)
     elif True:
         await interaction.response.send_message("Recherche internet...", ephemeral=True)
-        await interaction.edit_original_response(content=( "Ceci est un résumer peu pertinant d'une recherche internet !\n\n"+str(lire_lien("https://geeko.lesoir.be/2019/09/30/lincroyable-histoire-dhedy-lamarr-linventrice-du-wi-fi/")) ))
+        await interaction.edit_original_response(content=( "Ceci est un résumer peu pertinant d'une recherche internet !\n\n"+str(rechercher(mot_cle)) ))
     else:
         await interaction.response.send_message(
             "❌ Aucun lore trouvé pour ce mot-clé.")
