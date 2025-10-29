@@ -12,6 +12,38 @@ TIMEOUT = 10
 URL = "https://duckduckgo.com/html/"
 translator = Translator()
 lieu="Star-Wars-Galaxy-Rise/Star-Wars-Galaxy-Rise/"
+def extract_links(html, max_links=10):
+    liens=[]
+    l=html.split('uddg=')
+    for i in range(1, len(l)):
+        liens.append(l[i].split(';')[0])
+    for i in range(len(liens)):
+        j=list(liens[i])
+        for k in range(len(j)):
+            if j[k]=='%':
+                c=str(j[k+1])+str(j[k+2])
+                j[k+1]=""
+                j[k+2]=""
+                if c=="3A":
+                    j[k]=':'
+                elif c=="2F":
+                    j[k]='/'
+                elif c=="2D":
+                    j[k]='-'
+                else:
+                    j[k]='%'
+                    j[k+1]=c[0]
+                    j[k+2]=c[1]
+        if j[-4]+j[-3]+j[-2]+j[-1]=='&amp':
+            for h in range(1,5):
+                j[-h]=""
+        liens[i]="".join(j)
+    for i in range(len(liens)):
+        if liens[i] in liens[:i]:
+            liens[i]=""
+    while "" in liens:
+        liens.remove("")
+    return liens[:max_links]
 def extract_links_from_ddg(html, max_links=10):
     soup = BeautifulSoup(html, "html.parser")
     found = []
@@ -23,7 +55,6 @@ def extract_links_from_ddg(html, max_links=10):
         for a in soup.find_all("a", href=True):
             href = a["href"]
             found.append(href)
-    print('found :', found)
     normalized = []
     for href in found:
         parsed = urlparse(href)
@@ -37,7 +68,6 @@ def extract_links_from_ddg(html, max_links=10):
         if href.startswith("/"):
             href = urljoin("https://duckduckgo.com", href)
         normalized.append(href)
-    print('nomalized :', normalized)
     cleaned = []
     seen = set()
     for link in normalized:
@@ -51,8 +81,7 @@ def extract_links_from_ddg(html, max_links=10):
         cleaned.append(link)
         if len(cleaned) >= max_links:
             break
-    print('cleaned ', cleaned)
-    return cleaned, normalized, found #Les 2 derniers sont pour debug
+    return cleaned
 def lire_lien(urlLien, partieLu='sommaire'):
     if "wikipedia.org/wiki/" in urlLien:
         titre = urlLien.split("/wiki/")[-1]
@@ -89,7 +118,7 @@ def rechercher(query, partieLu='sommaire', enregistrer=False, chemin=''):
     response.raise_for_status()
     html = response.text
     #soup = BeautifulSoup(html, "html.parser") normalement c'est inutile
-    liens = extract_links_from_ddg(html)
+    liens = extract_links(html)
     return (str(liens)+'\n\n'+str(response.url)+'\n\n'+str(str(response)[:100])+'\n\n'+str(html))#Debug
     toutTexte=[]
     for lien in liens:
