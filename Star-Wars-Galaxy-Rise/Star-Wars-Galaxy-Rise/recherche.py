@@ -114,8 +114,10 @@ def lire_lien(urlLien, partieLu='sommaire'):
         return str(".".join(texte[:500].split(".")[:-1]))+"."
 def rechercher(query, partieLu='sommaire', enregistrer=False, chemin=''):
     params = {"q": query}
-    response = SESSION.get(URL, params=params, timeout=TIMEOUT)
-    response.raise_for_status()
+    nomRequeteComplet=f"https://duckduckgo.com/html/?q={query}"
+    response = requests.get(nomRequeteComplet)
+    #response = SESSION.get(URL, params=params, timeout=TIMEOUT)
+    #response.raise_for_status()
     html = response.text
     #soup = BeautifulSoup(html, "html.parser") normalement c'est inutile
     liens = extract_links(html)
