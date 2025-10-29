@@ -4,10 +4,18 @@ from bs4 import BeautifulSoup
 from urllib.parse import urljoin, urlparse, parse_qs, unquote
 from googletrans import Translator
 import time
-HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36"}
+HEADERS = {
+    "User-Agent": (
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+        "AppleWebKit/537.36 (KHTML, like Gecko) "
+        "Chrome/127.0.0.0 Safari/537.36"
+    ),
+    "Accept-Language": "fr-FR,fr;q=0.9",
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+}
 SESSION = requests.Session()
 SESSION.headers.update(HEADERS)
-#SESSION.cookies.set("SOCS", "CAESNQgKEitib3FfaWRlbnRpdHlmcm9udGVuZHVpc2VydmVyXzIwMjUxMDIyLjA2X3AwGgJmciACGgYIgODlxwY")
+SESSION.cookies.set("SOCS", "CAESNQgKEitib3FfaWRlbnRpdHlmcm9udGVuZHVpc2VydmVyXzIwMjUxMDIyLjA2X3AwGgJmciACGgYIgODlxwY")
 TIMEOUT = 10
 URL = "https://duckduckgo.com/html/"
 translator = Translator()
@@ -114,21 +122,20 @@ def lire_lien(urlLien, partieLu='sommaire'):
         return str(".".join(texte[:500].split(".")[:-1]))+"."
 def rechercher(query, partieLu='sommaire', enregistrer=False, chemin=''):
     params = {"q": query}
-    nomRequeteComplet=f"https://duckduckgo.com/html/?q={query}"
-    response = requests.get(nomRequeteComplet)
+    response = requests.get(str(URL)+str(query), headers=headers, timeout=10)
     #response = SESSION.get(URL, params=params, timeout=TIMEOUT)
     #response.raise_for_status()
     html = response.text
     #soup = BeautifulSoup(html, "html.parser") normalement c'est inutile
     liens = extract_links(html)
-    return (str(liens)+'\n\n'+str(response.url)+'\n\n'+str(str(response)[:100])+'\n\n'+str(html))#Debug
+    return (str(liens)+'\n\n'+str(response.status_code)+'\n\n'+str(response.url)+'\n\n'+str(str(response)[:100])+'\n\n'+str(html))#Debug
     toutTexte=[]
     for lien in liens:
         texte = lire_lien(lien, partieLu)
         if texte:
             toutTexte.append(texte)
     if toutTexte==[]:
-        return (str(liens)+'\n\n'+str(query)+'\n\n'+str(str(response)[:100])+'\n\n'+str(html))#Utile en cas de bug
+        return (str(liens)+'\n\n'+str(response.status_code)+'\n\n'+str(query)+'\n\n'+str(str(response)[:100])+'\n\n'+str(html))#Utile en cas de bug
     if enregistrer:
         query=list(query)
         for i in ['?','/',':','*','"','<','>','|','\\']:
