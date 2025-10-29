@@ -122,7 +122,7 @@ def lire_lien(urlLien, partieLu='sommaire'):
         return str(".".join(texte[:500].split(".")[:-1]))+"."
 def rechercher(query, partieLu='sommaire', enregistrer=False, chemin=''):
     params = {"q": query}
-    response = requests.get(str(URL)+str(query), headers=headers, timeout=10)
+    response = requests.get(str(URL)+str(query), headers=HEADERS, timeout=10)
     #response = SESSION.get(URL, params=params, timeout=TIMEOUT)
     #response.raise_for_status()
     html = response.text
