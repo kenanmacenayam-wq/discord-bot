@@ -4,8 +4,10 @@ from discord.ui import Select, View, Button, Modal, TextInput#Ajout récent pour
 from discord import app_commands, emoji
 from discord.app_commands import Choice
 from typing import Optional
+import requests, time
 from traitement import *
 from recherche import *
+import threading
 import os
 import json
 import re
@@ -863,8 +865,7 @@ def keep_alive():
     t = Thread(target=run)
     t.start()
 keep_alive()
-import requests, time
-import threading
+
 
 def auto_ping(url):
     def ping():
