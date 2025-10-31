@@ -579,7 +579,7 @@ async def voirfiche(interaction: discord.Interaction,
                                                     " n'a pas créé de fiche.",
                                                     ephemeral=True)
 
-
+"""
 # Lore : Farfadet
 @bot.tree.command(name="lore", description="Affiche le lore")
 async def lore(interaction: discord.Interaction, mot_cle: str):
@@ -598,7 +598,7 @@ async def lore(interaction: discord.Interaction, mot_cle: str):
     else:
         await interaction.response.send_message(
             "❌ Aucun lore trouvé pour ce mot-clé.")
-
+"""
 
 #modifier la compétence d'un joueur : Farfadet
 @bot.tree.command(name="competence",
@@ -834,7 +834,7 @@ async def stats(interaction: discord.Interaction):
 async def test(ctx):
     await ctx.send("✅ Bot opérationnel.")
 
-
+"""
 # Commande mute
 @bot.command()
 @commands.has_permissions(manage_roles=True)
@@ -848,7 +848,7 @@ async def mute(ctx, membre: discord.Member, *, raison="Aucune raison fournie"):
 
     await membre.add_roles(role, reason=raison)
     await ctx.send(f"🔇 {membre.mention} a été mute. Raison : {raison}")
-
+"""
 from flask import Flask
 from threading import Thread
 
