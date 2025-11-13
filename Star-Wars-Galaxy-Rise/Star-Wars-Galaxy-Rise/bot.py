@@ -5,8 +5,8 @@ from discord import app_commands, emoji
 from discord.app_commands import Choice
 from typing import Optional
 import requests, time
-from traitement import *
-from recherche import *
+#from traitement import *
+#from recherche import *
 import threading
 import os
 import json
