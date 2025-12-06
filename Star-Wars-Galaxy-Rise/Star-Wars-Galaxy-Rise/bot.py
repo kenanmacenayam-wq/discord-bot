@@ -104,11 +104,14 @@ tousRoles = [user_data["Rangs"][i] for i in user_data["Rangs"]]
 
 #Ajout récent
 class ChoixView(View):
-    def __init__(self, options):
+    def __init__(self, options, color=None):
         super().__init__()
         self.value = None
         for label in options:
-            bouton = Button(label=label, style=discord.ButtonStyle.primary)
+            if color and label == options[-1]:
+                bouton = Button(label=label, style=discord.ButtonStyle.danger)
+            else:
+                bouton = Button(label=label, style=discord.ButtonStyle.primary)
             async def callback(inter, label=label):
                 self.value = label
                 await inter.response.defer(thinking=False, ephemeral=True)
@@ -280,52 +283,6 @@ async def on_message(message):
             await message.channel.send(reponse)
     await bot.process_commands(message)
 
-"""
-@bot.tree.command(name="actualiser",
-                  description="(admin)Actualise la liste des compétences")
-async def actualiser(interaction: discord.Interaction):
-    if not interaction.user.guild_permissions.administrator:
-        await interaction.response.send_message(
-            "❌ Tu n'as pas la permission d'utiliser cette commande.",
-            ephemeral=True)
-        return
-    guild = interaction.guild
-    roles_competences = [
-        role.name for role in guild.roles
-        if role.color == discord.Color.dark_blue()
-    ]
-    print(roles_competences)
-    user_data["roles_competences"] = roles_competences
-    save_data()
-    await interaction.response.send_message("Actualisation effectué !",
-                                            ephemeral=True)
-
-
-#Afficher une image : Farfadet
-@bot.tree.command(name="afficher_image",
-                  description="Ceci est un test d'affichage d'image")
-async def afficher_image(interaction: discord.Interaction,
-                         taille: Optional[int] = 200):
-    try:
-        with open(str(lieu)+"Images/LienImages.json", "r") as f:
-            liens = json.load(f)
-        reponse = "Voici une image :"
-        try:
-            file = get_image_from_url(liens["Sabre"], largeur=int(taille))
-        except:
-            file = 200
-        if file == 200:
-            embed = discord.Embed()
-            embed.set_image(url=liens["Sabre"])
-            await interaction.response.send_message(content=reponse,
-                                                    embed=embed,
-                                                    ephemeral=True)
-            return
-        await interaction.response.send_message(content=reponse, file=file,                                              ephemeral=True)
-    except Exception as e:
-        print("❌ Impossible d'afficher l'image.\n" + str(e))
-        await interaction.response.send_message("❌ Impossible d'afficher l'image.", ephemeral=True)
-"""
 
 #Ban un joueur : Farfadet
 @bot.tree.command(name="mute", description="(admin)Empêche un joueur de parler")
@@ -378,35 +335,6 @@ async def deban(interaction: discord.Interaction, nom: discord.Member):
             "Une erreur s'est produite.\nAucun joueur n'a été débanni !",
             ephemeral=True)
 
-
-#Choisir un rôle : Farfadet
-"""
-@bot.tree.command(name="choix",
-                  description="Choisis un rôle parmi plusieurs options")
-async def choix(interaction: discord.Interaction):
-    user_id = str(interaction.user.id)
-    member = interaction.user  # C’est un Member ici
-    roles = [role.name for role in member.roles if role.name != "@everyone"]
-    dejaInscrit = False
-    for j in tousRoles:
-        for i in j:
-            if i in roles:
-                dejaInscrit = True
-                role = i
-    if dejaInscrit:
-        await interaction.response.send_message(
-            f"❌ Tu as déja reçu un rôle !\n Tu es un " + str(role) + " !",
-            ephemeral=True)
-    elif not (fiche_creer(user_id)):
-        await interaction.response.send_message(
-            f"❌ Tu n'as pas encore créé ta fiche !\nTape `/fiche` pour la créer !",
-            ephemeral=True)
-    else:
-        global SELECTION, CHOIX_POSSIBLES, CHOIX_TEXTE
-        CHOIX_POSSIBLES = rolesPossibles
-        CHOIX_TEXTE = "Choisis ton rôle !"
-        await interaction.response.send_message(
-            "Voici les rôles disponibles :", view=RoleView(), ephemeral=True)"""
 
 
 #Choisir sa fiche : Farfadet
@@ -579,26 +507,7 @@ async def voirfiche(interaction: discord.Interaction,
                                                     " n'a pas créé de fiche.",
                                                     ephemeral=True)
 
-"""
-# Lore : Farfadet
-@bot.tree.command(name="lore", description="Affiche le lore")
-async def lore(interaction: discord.Interaction, mot_cle: str):
-    info = lore_data.get(mot_cle.lower())
-    if info:
-        embed = discord.Embed(title=f"📚 Lore : {mot_cle.capitalize()}",
-                              description=info,
-                              color=0xf1c40f)
-        await interaction.response.send_message(embed=embed)
-    elif True:
-        await interaction.response.send_message("Recherche internet...", ephemeral=True)
-        try:
-            await interaction.edit_original_response(content=( "Ceci est un résumer peu pertinant d'une recherche internet !\n\n"+str(rechercher(mot_cle)[:1500]) ))
-        except Exception as e:
-            await interaction.edit_original_response(content="Une erreur s'est produite :\n"+str(e))
-    else:
-        await interaction.response.send_message(
-            "❌ Aucun lore trouvé pour ce mot-clé.")
-"""
+
 
 #modifier la compétence d'un joueur : Farfadet
 @bot.tree.command(name="competence",
@@ -710,30 +619,44 @@ async def rang_suivant(interaction: discord.Interaction, membre: discord.Member)
     await membre.remove_roles(roleSuppr)
     await membre.add_roles(roleAjout)
     await interaction.followup.send("✅ "+str(pseudo)+" est passé du rang "+str(rang)+" au rang "+str(rangSuivant)+" !", ephemeral=True)
+
+
 #Créer un salon : Farfadet
-@bot.tree.command(name="ticket", description="Permet de poser une question au staff")
+@bot.tree.command(name="ticket",
+                  description="Permet de poser une question au staff")
 async def creer_salon(interaction: discord.Interaction):
     guild = interaction.guild
     membre = interaction.user
-    num=user_data["Ticket"]
-    user_data["Ticket"]=num+1
-    save_data()
-    nom = "ticket-"+str(num)
-    # On définit les permissions :
-    overwrites = {
-        guild.default_role: discord.PermissionOverwrite(view_channel=False),  # Personne n'y a accès (sauf les admins)
-        membre: discord.PermissionOverwrite(view_channel=True)               # Seulement ce membre peut voir
-    }
-    salon = await guild.create_text_channel(name=nom, overwrites=overwrites)
-    await interaction.response.send_message(f"🎟️ Votre ticket a été créé : {salon.mention}", ephemeral=True)
-@bot.tree.command(name="fermer_ticket", description="Permet de fermer un ticket")
-async def fermer_ticket(interaction: discord.Interaction):
     salon = interaction.channel
+    question="**Pourquoi voulez-vous créer un ticket ?**"
+    choix=["Obtenir des informations", "Modification de sa fiche", "Problème technique", "Autre"]
+    ticket = False
     if salon.name.startswith("ticket-"):
-        await interaction.response.send_message(f"🗑️ Le ticket **{salon.name}** a été fermé.")
-        await salon.delete()
+        choix.append("Fermer le ticket")
+        ticket = True
+    view = ChoixView(choix, color=ticket)
+    await interaction.response.send_message(question, view=view, ephemeral=True)
+    await view.wait()
+    if view.value != "Fermer le ticket":
+        num = user_data["Ticket"]
+        user_data["Ticket"] = num + 1
+        save_data()
+        nom = "ticket-" + str(num) + "-" + str(view.value)
+        # On définit les permissions :
+        overwrites = {
+            guild.default_role: discord.PermissionOverwrite(
+                view_channel=False),  # Personne n'y a accès (sauf les admins)
+            membre: discord.PermissionOverwrite(
+                view_channel=True)  # Seulement ce membre peut voir
+        }
+        salon = await guild.create_text_channel(name=nom, overwrites=overwrites)
+        await interaction.followup.send(
+            f"🎟️ Votre ticket a été créé : {salon.mention}", ephemeral=True)
     else:
-        await interaction.response.send_message("❌ Cette commande ne peut être utilisée que dans un salon de ticket.", ephemeral=True)
+        await interaction.followup.send(
+            f"🗑️ Le ticket **{salon.name}** a été fermé.", ephemeral=True)
+        await salon.delete()
+
 
 #Début des ajouts
 class QuizView(discord.ui.View):
